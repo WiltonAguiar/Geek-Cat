@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/telafundo"
+    tools:context="com.example.telalogin.LoginScreen">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:padding="20dp"
+        android:background="@drawable/facalogin">
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"/>
+
+
+    <EditText
+
+        android:id="@+id/Email"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/baseline_email_24"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+
+
+        />
+
+    <EditText
+
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:id="@+id/Senha"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="40dp"
+        android:textSize="13dp"
+        android:padding="15dp"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:drawableLeft="@drawable/baseline_lock_24"
+        android:textColor="@color/black"
+
+
+        />
+
+    <Button
+
+        android:id="@+id/esqueceuSenha"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Esqueceu sua senha?"
+        android:textSize="13sp"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/Lavender"
+        android:padding="12dp"
+        android:textAlignment="center"
+        android:textColor="@color/Lavender"
+        android:textColorHint="@color/white"
+
+
+        />
+
+    <Button
+        android:id="@+id/botaoEntrar"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
+        android:text="Entrar"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+
+        />
+
+    <Button
+
+        android:id="@+id/registrar"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="Não tem uma conta? Registrar-se."
+        android:textSize="11dp"
+        android:padding="15dp"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/Lavender"
+        android:textAlignment="center"
+        android:textColor="@color/Lavender"
+        android:textColorHint="@color/white"
+
+
+        />
+
+</LinearLayout>

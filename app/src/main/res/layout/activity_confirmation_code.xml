@@ -1,0 +1,67 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/telafundodecorada"
+    tools:context="com.example.telalogin.register_screen">
+
+
+
+    <EditText
+
+        android:id="@+id/digiteseuemail"
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:text="Digite o código de confirmação enviado para o seu email"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+
+
+        />
+
+    <EditText
+
+        android:id="@+id/Emailrecuperacao"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/custom_edittext"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/baseline_lock_24"
+        android:hint="código confirmação"
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="13dp"
+
+
+        />
+
+    <Button
+        android:id="@+id/botaoAvancarCodRecuperacao"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="65dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
+        android:text="Avançar"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+
+
+
+
+</LinearLayout>
+

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/telafundodecorada"
+    tools:context="com.example.telalogin.user_logged">
+
+<TextView
+android:layout_width="match_parent"
+android:layout_height="119dp"
+android:layout_gravity="center_horizontal"
+android:layout_marginBottom="200dp"
+android:padding="30dp"
+    android:drawableLeft="@drawable/iconuser"
+android:text="Olá! (Username)"
+android:textAlignment="center"
+android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+android:textColor="@color/white"
+android:textSize="40sp" />
+
+
+    <Button
+        android:id="@+id/botaolog"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-106dp"
+        android:backgroundTint="@color/white"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/iconlog"
+        android:text="Logs"
+        android:textAlignment="center"
+        android:textColor="@color/esqueceuSenha"
+        android:textSize="33sp"
+
+        />
+    <Button
+        android:id="@+id/botaocriarfase"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/iconcriarfase"
+        android:text="Criar fase"
+        android:textAlignment="center"
+        android:textColor="@color/esqueceuSenha"
+        android:textSize="33sp"
+
+        />
+    <Button
+        android:id="@+id/botaosair"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/white"
+        android:padding="15dp"
+        android:drawableLeft="@drawable/iconsair"
+        android:text="Sair"
+        android:textAlignment="center"
+        android:textColor="@color/esqueceuSenha"
+        android:textSize="33sp"
+
+        />
+
+</LinearLayout>

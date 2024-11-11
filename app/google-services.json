@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "675594897701",
+    "project_id": "teste-f74de",
+    "storage_bucket": "teste-f74de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675594897701:android:2dff149ba00365f26f72cc",
+        "android_client_info": {
+          "package_name": "com.example.telalogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5EFgrBrwvLDPR5u0uDE8hoYCjxLKYEkU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

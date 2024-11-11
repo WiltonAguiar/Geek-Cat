@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/telafundo"
+    tools:context="com.example.telalogin.LoginScreen">
+
+    <LinearLayout
+        android:layout_width="350dp"
+        android:layout_height="230dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:padding="24dp"
+        android:background="@drawable/naruto_1">
+    </LinearLayout>
+
+
+
+
+
+
+    <TextView
+
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
+        android:text="Quem é esse personagem ?"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+
+        />
+
+    <Button
+        android:id="@+id/alternativa1Imagem"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
+        android:text=" Goku"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/alternativa2Imagem"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
+        android:text="Naruto"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/alternativa3Imagem"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
+        android:text="Sasuke"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+    <Button
+        android:id="@+id/alternativa4Imagem"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
+        android:text="Luffy"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
+
+</LinearLayout>
