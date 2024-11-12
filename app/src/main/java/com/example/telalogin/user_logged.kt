@@ -25,7 +25,7 @@ class user_logged : AppCompatActivity() {
         }
         findViewById<Button>(R.id.botaosair
         ).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
         }
 
