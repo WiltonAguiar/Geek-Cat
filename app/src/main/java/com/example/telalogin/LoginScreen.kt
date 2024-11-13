@@ -62,6 +62,7 @@ class LoginScreen : AppCompatActivity() {
                         if (task.isSuccessful) {
                             val user = firebaseAuth.currentUser
                             if (user != null) {
+                                // Verifica o tipo de usuário no Firestore
                                 db.collection("users")
                                     .document(user.uid)
                                     .get()
@@ -77,6 +78,7 @@ class LoginScreen : AppCompatActivity() {
                                                 val intent = Intent(this, user_logged::class.java)
                                                 startActivity(intent)
                                             } else {
+                                                // Usuário padrão encontrado, redireciona para homeScreen
                                                 Toast.makeText(
                                                     this,
                                                     "Login bem-sucedido!",
@@ -94,7 +96,7 @@ class LoginScreen : AppCompatActivity() {
                                         }
                                     }
                                     .addOnFailureListener { exception ->
-                                        Log.w("Firestore", "Error getting documents.", exception)
+                                        Log.w("Firestore", "Erro ao acessar o banco de dados.", exception)
                                         Toast.makeText(
                                             this,
                                             "Erro ao acessar o banco de dados.",
@@ -103,11 +105,25 @@ class LoginScreen : AppCompatActivity() {
                                     }
                             }
                         } else {
-                            Toast.makeText(
-                                this,
-                                "Falha no login. Verifique suas credenciais.",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            // Caso não seja autenticado pelo Firebase, faz a verificação manual no Firestore
+                            db.collection("users")
+                                .whereEqualTo("email", email)
+                                .whereEqualTo("senha", senha)
+                                .get()
+                                .addOnSuccessListener { documents ->
+                                    if (!documents.isEmpty) {
+                                        // Se encontrar o usuário com email e senha corretos
+                                        Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
+                                        val intent = Intent(this, homeScreen::class.java)
+                                        startActivity(intent)
+                                    } else {
+                                        Toast.makeText(this, "Credenciais inválidas.", Toast.LENGTH_SHORT).show()
+                                    }
+                                }
+                                .addOnFailureListener { exception ->
+                                    Log.w("Firestore", "Erro ao acessar o banco de dados.", exception)
+                                    Toast.makeText(this, "Erro ao acessar o banco de dados.", Toast.LENGTH_SHORT).show()
+                                }
                         }
                     }
             }

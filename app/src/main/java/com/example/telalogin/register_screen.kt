@@ -40,7 +40,7 @@ class register_screen : AppCompatActivity() {
 
         fb = Firebase.firestore
         findViewById<Button>(R.id.voltarTelaLogin).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
         }
 
