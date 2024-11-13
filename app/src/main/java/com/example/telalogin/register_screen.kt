@@ -63,14 +63,14 @@ class register_screen : AppCompatActivity() {
             ))
 
 
-//            AlertDialog.Builder(this)
-//                .setTitle("Sucesso!")
-//                .setMessage("Registro realizado!")
-//                .setPositiveButton("OK") { dialog, _ ->
-//                    dialog.dismiss()
-//
-//                }
-//                .show()
+            AlertDialog.Builder(this)
+                .setTitle("Sucesso!")
+                .setMessage("Registro realizado!")
+                .setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+
+                }
+                .show()
         }
 
 
