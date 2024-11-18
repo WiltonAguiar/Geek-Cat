@@ -47,35 +47,36 @@ class register_screen : AppCompatActivity() {
         val BotaoRegistrarSenha = findViewById<Button>(R.id.botaoRegistrar)
 
         BotaoRegistrarSenha.setOnClickListener {
-            Log.d("Firestore","usuario:"+ editTextUsuario.text)
-            Log.d("Firestore","email:"+ editTextEmail.text)
-            Log.d("Firestore","senha:"+ editTextSenha.text)
-            Log.d("Firestore","confirmar senha:"+ editTextConfirmaSenha.text)
+            Log.d("Firestore", "usuario:" + editTextUsuario.text)
+            Log.d("Firestore", "email:" + editTextEmail.text)
+            Log.d("Firestore", "senha:" + editTextSenha.text)
+            Log.d("Firestore", "confirmar senha:" + editTextConfirmaSenha.text)
 
 
             fb.collection("users")
-                .add(mapOf(
-                "nome" to editTextUsuario.text.toString(),
-                "email" to editTextEmail.text.toString(),
-                "senha" to editTextSenha.text.toString(),
-                "confirmarsenha" to editTextConfirmaSenha.text.toString()
+                .add(
+                    mapOf(
+                        "nome" to editTextUsuario.text.toString(),
+                        "email" to editTextEmail.text.toString(),
+                        "senha" to editTextSenha.text.toString(),
+                        "confirmarsenha" to editTextConfirmaSenha.text.toString()
 
-            ))
+                    )
+                )
 
 
-            AlertDialog.Builder(this)
-                .setTitle("Sucesso!")
-                .setMessage("Registro realizado!")
-                .setPositiveButton("OK") { dialog, _ ->
-                    dialog.dismiss()
+//            AlertDialog.Builder(this)
+//                .setTitle("Sucesso!")
+//                .setMessage("Registro realizado!")
+//                .setPositiveButton("OK") { dialog, _ ->
+//                    dialog.dismiss()
+//
+//                }
+//                .show()
+//        }
 
-                }
-                .show()
+
         }
 
 
-
-    }
-
-
-}
+    }}
