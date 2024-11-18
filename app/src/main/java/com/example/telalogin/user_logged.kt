@@ -18,6 +18,7 @@ class user_logged : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        var aux = intent.getStringExtra("id")
         findViewById<Button>(R.id.botaocriarfase
         ).setOnClickListener {
             val intent = Intent(this, level_creator::class.java)
@@ -28,6 +29,8 @@ class user_logged : AppCompatActivity() {
             val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
         }
+
+
 
     }
 }
