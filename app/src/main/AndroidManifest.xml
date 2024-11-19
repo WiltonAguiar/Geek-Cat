@@ -12,24 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TelaLogin"
         tools:targetApi="35">
-
-
+        <activity
+            android:name=".tela_ranking"
+            android:exported="false" />
         <activity
             android:name=".tela_quiz_imagem"
             android:exported="false" />
-
         <activity
             android:name=".ShopScreen"
             android:exported="false" />
-
         <activity
             android:name=".tela_quiz_texto"
             android:exported="false" />
-
         <activity
             android:name=".homeScreen"
             android:exported="false" />
-
         <activity
             android:name=".tela_quiz_audio"
             android:exported="false" />
