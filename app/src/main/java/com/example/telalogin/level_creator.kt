@@ -106,7 +106,7 @@ class level_creator : AppCompatActivity() {
             )
 
 
-            FirebaseFirestore.getInstance().collection("fases")
+            FirebaseFirestore.getInstance().collection("F ases")
                 .add(fase)
                 .addOnSuccessListener {
                     Toast.makeText(this, "Fase criada com sucesso!", Toast.LENGTH_SHORT).show()
