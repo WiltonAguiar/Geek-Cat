@@ -98,11 +98,7 @@ class level_creator : AppCompatActivity() {
             val fase = mapOf(
                 "pergunta" to Enunciado.text.toString(),
                 "nivel" to nivelSelecionado,
-                "correta" to certaResposta,
-                "resp1" to resposta1.text.toString(),
-                "resp2" to resposta2.text.toString(),
-                "resp3" to resposta3.text.toString(),
-                "resp4" to resposta4.text.toString()
+                "correta" to certaResposta
             )
 
 
