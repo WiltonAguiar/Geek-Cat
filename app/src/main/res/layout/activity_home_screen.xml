@@ -14,12 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
 
 
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/main"
@@ -112,16 +108,16 @@
                 <RelativeLayout
                     android:id="@+id/level_section"
                     android:layout_width="354dp"
-                    android:layout_height="115dp"
+                    android:layout_height="40dp"
                     android:layout_below="@id/header"
-                    android:background="#FFCCD5"
+                    android:background="#6B47DC"
                     android:padding="16dp"
                     tools:ignore="MissingConstraints">
 
 
                     <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_width="322dp"
+                        android:layout_height="0dp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -135,14 +131,6 @@
                             android:gravity="start|center_horizontal"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:id="@+id/level_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="20dp"
-                                android:text="Nivel 1"
-                                android:textColor="@android:color/white"
-                                android:textSize="18sp" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -150,25 +138,9 @@
                                 android:gravity="start|center_horizontal"
                                 android:orientation="horizontal">
 
-                                <Spinner
-                                    android:id="@+id/spinner_theme"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="20dp" />
-
-                                <Spinner
-                                    android:id="@+id/spinner_difficulty"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="20dp" />
                             </LinearLayout>
                         </LinearLayout>
 
-                        <ProgressBar
-                            android:id="@+id/progressBar2"
-                            style="?android:attr/progressBarStyle"
-                            android:layout_width="60dp"
-                            android:layout_height="59dp" />
 
                     </LinearLayout>
 
@@ -220,8 +192,6 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
