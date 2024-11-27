@@ -1,24 +1,50 @@
 package com.example.telalogin
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.telalogin.R.id.BotaoVisualizarFase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class RecyclerViewExemplo : AppCompatActivity() {
-    lateinit var recy:RecyclerView
+    private lateinit var recy: RecyclerView
+    private val db = Firebase.firestore
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler_view_exemplo)
+
         recy = findViewById(R.id.recyclerView)
-
-        var dataset = listOf("Narak","Davi","Wilton","Mayra","Narak","Davi","Wilton","Mayra","Narak","Davi","Wilton","Mayra","Narak","Davi","Wilton","Mayra")
-
-        var adapter = MyAdapter(dataset)
         recy.layoutManager = LinearLayoutManager(this)
-        recy.adapter = adapter
+
+        fetchFasesData()
+
+
+    }
+
+
+    private fun fetchFasesData() {
+        db.collection("Fases")
+            .get()
+            .addOnSuccessListener { documents ->
+                val dataset = mutableListOf<String>()
+                for (document in documents) {
+                    val fase = document.getString("pergunta") // Substitua "nome" pela chave usada no Firestore
+                    if (fase != null) {
+                        dataset.add(fase)
+                    }
+                }
+                // Atualiza o RecyclerView com os dados
+                val adapter = MyAdapter(dataset)
+                recy.adapter = adapter
+            }
+            .addOnFailureListener { exception ->
+                Log.e("FirestoreError", "Erro ao buscar dados: ", exception)
+            }
     }
 }

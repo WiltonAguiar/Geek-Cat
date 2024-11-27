@@ -9,20 +9,22 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class MyAdapter(var list:List<String>):RecyclerView.Adapter<MyViewHolder>() {
+class MyAdapter(var list: List<String>) : RecyclerView.Adapter<MyViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        var view = LayoutInflater.from(parent.context).inflate(R.layout.item_view,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
         return MyViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.nome.text = list.get(position)
+        holder.nome.text = list[position]
 
-        holder.button.setOnClickListener{
-            var intent = Intent(holder.itemView.context,user_logged::class.java)
-            intent.putExtra("id",holder.nome.text)
+        holder.button.setOnClickListener {
+            val intent = Intent(holder.itemView.context, levelEditor::class.java) // Altere para LevelEditor
+            intent.putExtra("id", holder.nome.text) // Passa o texto do item para a próxima Activity
             holder.itemView.context.startActivity(intent)
-            Toast.makeText(holder.itemView.context,list.get(position),Toast.LENGTH_SHORT).show()
+
+            // Opcional: Exibe uma mensagem para o item clicado
+            Toast.makeText(holder.itemView.context, "Abrindo ${list[position]}", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -31,11 +33,7 @@ class MyAdapter(var list:List<String>):RecyclerView.Adapter<MyViewHolder>() {
     }
 }
 
-class MyViewHolder( item: View):RecyclerView.ViewHolder(item) {
-    var nome:TextView
-    var button:Button
-    init {
-        nome = item.findViewById(R.id.textView)
-        button = item.findViewById(R.id.button)
-    }
+class MyViewHolder(item: View) : RecyclerView.ViewHolder(item) {
+    var nome: TextView = item.findViewById(R.id.Fase)
+    var button: Button = item.findViewById(R.id.BotaoVisualizarFase)
 }
