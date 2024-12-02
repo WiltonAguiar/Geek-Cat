@@ -35,7 +35,7 @@
                 android:gravity="center" />
 
             <CheckBox
-                android:id="@+id/nivelDificuldade1"
+                android:id="@+id/nivelDificuldade1Banco"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
@@ -59,7 +59,7 @@
                 android:gravity="center" />
 
             <CheckBox
-                android:id="@+id/nivelDificuldade2"
+                android:id="@+id/nivelDificuldade2Banco"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
@@ -83,7 +83,7 @@
                 android:gravity="center" />
 
             <CheckBox
-                android:id="@+id/nivelDificuldade3"
+                android:id="@+id/nivelDificuldade3Banco"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="8dp"
@@ -125,7 +125,7 @@
 
     <!-- Enunciado -->
     <EditText
-        android:id="@+id/Enunciado"
+        android:id="@+id/EnunciadoBanco"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
@@ -165,7 +165,7 @@
         android:layout_marginTop="20dp">
 
         <EditText
-            android:id="@+id/Pergunta1"
+            android:id="@+id/Pergunta1Banco"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -179,7 +179,7 @@
             android:textSize="13dp" />
 
         <CheckBox
-            android:id="@+id/checkBoxPergunta1"
+            android:id="@+id/checkBoxPergunta1Banco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"/>
@@ -194,7 +194,7 @@
         android:layout_marginTop="20dp">
 
         <EditText
-            android:id="@+id/Pergunta2"
+            android:id="@+id/Pergunta2Banco"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -208,7 +208,7 @@
             android:textSize="13dp" />
 
         <CheckBox
-            android:id="@+id/checkBoxPergunta2"
+            android:id="@+id/checkBoxPergunta2Banco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"/>
@@ -223,7 +223,7 @@
         android:layout_marginTop="20dp">
 
         <EditText
-            android:id="@+id/Pergunta3"
+            android:id="@+id/Pergunta3Banco"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -237,7 +237,7 @@
             android:textSize="13dp" />
 
         <CheckBox
-            android:id="@+id/checkBoxPergunta3"
+            android:id="@+id/checkBoxPergunta3Banco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"/>
@@ -252,7 +252,7 @@
         android:layout_marginTop="20dp">
 
         <EditText
-            android:id="@+id/Pergunta4"
+            android:id="@+id/Pergunta4Banco"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
@@ -266,7 +266,7 @@
             android:textSize="13dp" />
 
         <CheckBox
-            android:id="@+id/checkBoxPergunta4"
+            android:id="@+id/checkBoxPergunta4Banco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"/>

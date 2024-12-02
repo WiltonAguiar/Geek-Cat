@@ -1,13 +1,10 @@
 package com.example.telalogin
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.telalogin.R.id.BotaoVisualizarFase
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -23,23 +20,33 @@ class RecyclerViewExemplo : AppCompatActivity() {
         recy.layoutManager = LinearLayoutManager(this)
 
         fetchFasesData()
-
-
     }
+
 
 
     private fun fetchFasesData() {
         db.collection("Fases")
             .get()
             .addOnSuccessListener { documents ->
-                val dataset = mutableListOf<String>()
+                // Cria o dataset contendo mapas com todos os dados necessários
+                val dataset = mutableListOf<Map<String, Any>>()
                 for (document in documents) {
-                    val fase = document.getString("pergunta") // Substitua "nome" pela chave usada no Firestore
-                    if (fase != null) {
-                        dataset.add(fase)
-                    }
+                    val id = document.id // Obtém o ID do documento
+                    val pergunta = document.getString("pergunta") ?: ""
+                    val nivel = document.getString("nivel") ?: ""
+                    val correta = document.get("correta") ?: emptyList<Any>() // Garante que seja uma lista ou vazio
+
+                    dataset.add(
+                        mapOf(
+                            "id" to id,
+                            "pergunta" to pergunta,
+                            "nivel" to nivel,
+                            "correta" to correta
+                        )
+                    )
                 }
-                // Atualiza o RecyclerView com os dados
+
+                // Atualiza o RecyclerView com o adaptador
                 val adapter = MyAdapter(dataset)
                 recy.adapter = adapter
             }

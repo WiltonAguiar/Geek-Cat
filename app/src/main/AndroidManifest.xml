@@ -22,6 +22,9 @@
             android:name=".levelEditor"
             android:exported="false" />
         <activity
+            android:name=".LevelEditor"
+            android:exported="false" />
+        <activity
             android:name=".RecyclerViewExemplo"
             android:exported="false" />
         <activity
