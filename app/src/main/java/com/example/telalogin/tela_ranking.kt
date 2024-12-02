@@ -1,7 +1,8 @@
 package com.example.telalogin
 
-import CustomAdapter
+
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -9,54 +10,72 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
-import kotlinx.android.synthetic.main.activity_tela_ranking.*
 
 
-data class Jogador(val nome: String = "", val pontuacao: Int = 0)
+
+data class Jogador(val nome: String, val pontuacao: Int)
 
 class tela_ranking : AppCompatActivity() {
 
     private val db = FirebaseFirestore.getInstance()
     private lateinit var adapter: RankingAdapter
 
-    private lateinit var recycler_view
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_tela_ranking)
 
-        val jogadores = mutableListOf<Jogador>()
-        adapter = RankingAdapter(jogadores)
+        val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.adapter = adapter
 
-        fetchRanking(jogadores)
+        // Dados de exemplo para o ranking
+        val rankingList = listOf(
+            Jogador("Alice", 120),
+            Jogador("Bob", 95),
+            Jogador("Carol", 85)
+        )
 
-//        val dataset = arrayOf("January", "February", "March")
-//        val customAdapter = CustomAdapter(dataset)
-//        val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
-//        recyclerView.layoutManager = LinearLayoutManager(this)
-//        recyclerView.adapter = customAdapter
+        val adapter = RankingAdapter(rankingList)
+        recyclerView.adapter = adapter
+
+//        val db = FirebaseFirestore.getInstance()
+//
+//        val rankingList = mutableListOf<Jogador>()
+//
+//        db.collection("ranking")
+//            .get()
+//            .addOnSuccessListener { result ->
+//                for (document in result) {
+//                    val nome = document.getString("nome") ?: "Desconhecido"
+//                    val pontuacao = document.getLong("pontuacao")?.toInt() ?: 0
+//                    rankingList.add(Jogador(nome, pontuacao))
+//                }
+//                val adapter = RankingAdapter(rankingList)
+//                recyclerView.adapter = adapter
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.w("Firebase", "Erro ao carregar o ranking.", exception)
+//            }
+
+
     }
 
-    private fun fetchRanking(jogadores: MutableList<Jogador>) {
-        db.collection("ranking")
-            .orderBy("pontuacao", com.google.firebase.firestore.Query.Direction.DESCENDING)
-            .get()
-            .addOnSuccessListener { result ->
-                jogadores.clear()
-                for (document in result) {
-                    val nome = document.getString("nome") ?: ""
-                    val pontuacao = document.getLong("pontuacao")?.toInt() ?: 0
-                    jogadores.add(Jogador(nome, pontuacao))
-                }
-                adapter.notifyDataSetChanged()
-            }
-            .addOnFailureListener { exception ->
-                // Log do erro ou exibição de mensagem para o usuário
-                exception.printStackTrace()
-            }
-    }
+//    private fun fetchRanking(jogadores: MutableList<Jogador>) {
+//        db.collection("ranking")
+//            .orderBy("pontuacao", com.google.firebase.firestore.Query.Direction.DESCENDING)
+//            .get()
+//            .addOnSuccessListener { result ->
+//                jogadores.clear()
+//                for (document in result) {
+//                    val nome = document.getString("nome") ?: ""
+//                    val pontuacao = document.getLong("pontuacao")?.toInt() ?: 0
+//                    jogadores.add(Jogador(nome, pontuacao))
+//                }
+//                adapter.notifyDataSetChanged()
+//            }
+//            .addOnFailureListener { exception ->
+//                // Log do erro ou exibição de mensagem para o usuário
+//                exception.printStackTrace()
+//            }
+//    }
 }
