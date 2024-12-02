@@ -52,7 +52,7 @@
                         app:srcCompat="@drawable/home" />
 
                     <ImageView
-                        android:id="@+id/imageView10"
+                        android:id="@+id/ranking"
                         android:layout_width="94dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
