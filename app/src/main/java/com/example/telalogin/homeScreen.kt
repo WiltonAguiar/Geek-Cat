@@ -39,5 +39,10 @@ class homeScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
+        findViewById<ImageView>(R.id.ranking).setOnClickListener {
+            val intent = Intent(this, tela_ranking::class.java)
+            startActivity(intent)
+        }
+
 
     }}
