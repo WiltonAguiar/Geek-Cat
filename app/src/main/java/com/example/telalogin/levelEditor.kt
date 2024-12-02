@@ -19,7 +19,7 @@ class LevelEditor : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
 
-        // Inicializa os campos de edição
+
         val EnunciadoBanco: EditText = findViewById(R.id.EnunciadoBanco)
         val Pergunta1Banco: EditText = findViewById(R.id.Pergunta1Banco)
         val Pergunta2Banco: EditText = findViewById(R.id.Pergunta2Banco)
