@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_screen)
-
+        startActivity(Intent(this,RecyclerViewExemplo::class.java))
         editTextLoginEmail = findViewById(R.id.Email)
         editTextSenha = findViewById(R.id.Senha)
         firebaseAuth = FirebaseAuth.getInstance()

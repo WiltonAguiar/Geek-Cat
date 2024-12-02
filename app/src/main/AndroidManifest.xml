@@ -19,6 +19,12 @@
             android:name=".tela_ranking"
             android:exported="false" />
         <activity
+            android:name=".levelEditor"
+            android:exported="false" />
+        <activity
+            android:name=".RecyclerViewExemplo"
+            android:exported="false" />
+        <activity
             android:name=".tela_quiz_imagem"
             android:exported="false" />
         <activity

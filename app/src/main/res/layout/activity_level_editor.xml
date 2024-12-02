@@ -272,13 +272,13 @@
             android:layout_marginLeft="10dp"/>
     </LinearLayout>
     <Button
-        android:id="@+id/BotaoFinalizarCriacaoFase"
+        android:id="@+id/BotaoUpdateFase"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:backgroundTint="@color/esqueceuSenha"
         android:padding="15dp"
-        android:text="Criar fase"
+        android:text="Editar fase"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp" />
