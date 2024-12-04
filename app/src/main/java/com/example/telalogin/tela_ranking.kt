@@ -30,17 +30,6 @@ class tela_ranking : AppCompatActivity() {
         val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-
-//        // Dados de exemplo para o ranking
-//        val rankingList = listOf(
-//            Jogador("Alice", 120),
-//            Jogador("Bob", 95),
-//            Jogador("Carol", 85)
-//        )
-//
-//        val adapter = RankingAdapter(rankingList)
-//        recyclerView.adapter = adapter
-
         val db = FirebaseFirestore.getInstance()
         val rankingList = mutableListOf<Jogador>()
 
