@@ -21,7 +21,10 @@ class homeScreen : AppCompatActivity() {
         }
 
         findViewById<ImageView>(R.id.StartMission1).setOnClickListener {
-            val intent = Intent(this, tela_quiz_imagem::class.java)
+
+
+
+            val intent = Intent(this, tela_quiz_texto::class.java)
             startActivity(intent)
     }
 
@@ -43,6 +46,7 @@ class homeScreen : AppCompatActivity() {
             val intent = Intent(this, tela_ranking::class.java)
             startActivity(intent)
         }
+
 
 
     }}

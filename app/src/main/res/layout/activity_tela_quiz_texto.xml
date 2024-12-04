@@ -11,36 +11,18 @@
     android:background="@drawable/telafundo"
     tools:context="com.example.telalogin.LoginScreen">
 
-    <LinearLayout
-        android:layout_width="350dp"
-        android:layout_height="230dp"
-        android:orientation="vertical"
-        android:layout_gravity="center_horizontal"
-        android:padding="24dp"
-        android:background="@drawable/naruto_1">
-    </LinearLayout>
-
-
-
-
-
-
     <TextView
+        android:id="@+id/TextoBanco"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:text="TESTE"
+        android:textSize="30dp"
+        android:textColor="@color/black">
 
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/esqueceuSenha"
-        android:padding="15dp"
-        android:text="Quem é esse personagem ?"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="13sp"
 
-        />
-
+    </TextView>
     <Button
-        android:id="@+id/alternativa1Imagem"
+        android:id="@+id/alternativa1Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -52,7 +34,7 @@
         android:textSize="13sp" />
 
     <Button
-        android:id="@+id/alternativa2Imagem"
+        android:id="@+id/alternativa2Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -64,7 +46,7 @@
         android:textSize="13sp" />
 
     <Button
-        android:id="@+id/alternativa3Imagem"
+        android:id="@+id/alternativa3Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
@@ -76,7 +58,7 @@
         android:textSize="13sp" />
 
     <Button
-        android:id="@+id/alternativa4Imagem"
+        android:id="@+id/alternativa4Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
