@@ -1,8 +1,11 @@
+package com.example.telalogin
+
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.telalogin.R
 import com.google.firebase.auth.FirebaseAuth
@@ -26,13 +29,14 @@ class ProfileViewActivity : AppCompatActivity() {
 
         if (userId != null) {
             db.collection("users").document(userId).get()
-                .addOnSuccessListener { document ->
-                    if (document != null) {
-                        tvName.text = "Nome: ${document.getString("nome")}"
-                        tvEmail.text = "Email: ${document.getString("email")}"
-                        tvLife.text = "Vida: ${document.getLong("life")?.toString()}"
-                        tvScore.text = "Score: ${document.getLong("score")?.toString()}"
+                .addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot != null) {
+                        tvName.text = "Nome: ${documentSnapshot.data?.get("nome") as String}"
+                        tvEmail.text = "Email: ${documentSnapshot.data?.get("email") as String}"
+                        tvLife.text = "Vida: ${documentSnapshot.data?.get("life") as String}"
+                        tvScore.text = "Score: ${documentSnapshot.data?.get("score") as String}"
                     }
+
                 }
                 .addOnFailureListener { e ->
                     Log.e("ProfileView", "Erro ao buscar dados: ", e)
