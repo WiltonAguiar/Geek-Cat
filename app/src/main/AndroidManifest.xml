@@ -19,9 +19,6 @@
             android:name=".tela_ranking"
             android:exported="false" />
         <activity
-            android:name=".levelEditor"
-            android:exported="false" />
-        <activity
             android:name=".LevelEditor"
             android:exported="false" />
         <activity

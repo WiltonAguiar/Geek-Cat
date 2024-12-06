@@ -7,28 +7,116 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:background="@drawable/telafundo"
     tools:context="com.example.telalogin.LoginScreen">
 
+    <!-- Header no topo -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <!-- Cup Gold -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton_cup_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                app:srcCompat="@drawable/cup_gold" />
+
+            <TextView
+                android:id="@+id/counter_cup_gold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="10"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Gem Blue -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton_gem_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                app:srcCompat="@drawable/gem_blue" />
+
+            <TextView
+                android:id="@+id/counter_gem_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="∞"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Heart Red -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton_heart_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                app:srcCompat="@drawable/heart_red" />
+
+            <TextView
+                android:id="@+id/counter_heart_red"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="sans-serif-medium"
+                android:text="5/5"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Conteúdo principal centralizado -->
     <TextView
         android:id="@+id/TextoBanco"
         android:layout_width="wrap_content"
-        android:layout_height="70dp"
+        android:layout_height="35dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="130dp"
         android:text="TESTE"
-        android:textSize="30dp"
-        android:textColor="@color/black">
+        android:textColor="@color/black"
+        android:textSize="30dp" />
 
-
-    </TextView>
     <Button
         android:id="@+id/alternativa1Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/esqueceuSenha"
         android:padding="15dp"
-        android:text=" Goku"
+        android:text="Goku"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="13sp" />
@@ -37,7 +125,8 @@
         android:id="@+id/alternativa2Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/esqueceuSenha"
         android:padding="15dp"
         android:text="Naruto"
@@ -49,7 +138,8 @@
         android:id="@+id/alternativa3Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/esqueceuSenha"
         android:padding="15dp"
         android:text="Sasuke"
@@ -61,12 +151,12 @@
         android:id="@+id/alternativa4Texto"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center_horizontal"
         android:backgroundTint="@color/esqueceuSenha"
         android:padding="15dp"
         android:text="Luffy"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="13sp" />
-
 </LinearLayout>

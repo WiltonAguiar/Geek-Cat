@@ -44,12 +44,12 @@ class tela_ranking : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         val rankingList = mutableListOf<Jogador>()
 
-        db.collection("ranking")
+        db.collection("users")
             .get()
             .addOnSuccessListener { result ->
                 for (document in result) {
                     val nome = document.getString("nome") ?: "Desconhecido"
-                    val pontuacao = document.getString("pontuacao")?.toIntOrNull() ?: 0
+                    val pontuacao = document.getString("score")?.toIntOrNull() ?: 0
                     rankingList.add(Jogador(nome, pontuacao))
                 }
                 // Atualize o adaptador com a lista de ranking
