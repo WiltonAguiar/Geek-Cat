@@ -21,9 +21,10 @@ class homeScreen : AppCompatActivity() {
             insets
         }
 
-        Toast.makeText(this, "Login bem-sucedido!", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "FASE DE TESTES. TODOS OS PODERES LIBERADOS!", Toast.LENGTH_SHORT).show()
 
         findViewById<ImageView>(R.id.StartMission1).setOnClickListener {
+
 
 
 
@@ -35,13 +36,18 @@ class homeScreen : AppCompatActivity() {
             val intent = Intent(this, tela_quiz_audio::class.java)
             startActivity(intent)
         }
-        findViewById<ImageView>(R.id.imageButton2).setOnClickListener {
+        findViewById<ImageView>(R.id.imageButton_heart_red).setOnClickListener {
             val intent = Intent(this, ShopScreen::class.java)
             startActivity(intent)
         }
 
-        findViewById<ImageView>(R.id.imageButton3).setOnClickListener {
+        findViewById<ImageView>(R.id.imageButton_gem_blue).setOnClickListener {
             val intent = Intent(this, ShopScreen::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<ImageView>(R.id.imageButton_cup_gold).setOnClickListener {
+            val intent = Intent(this, tela_ranking::class.java)
             startActivity(intent)
         }
 
@@ -50,9 +56,6 @@ class homeScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
-        findViewById<ImageView>(R.id.imageView8).setOnClickListener {
-            val intent = Intent(this, ProfileViewActivity::class.java)
-            startActivity(intent)
-        }
+
 
     }}
