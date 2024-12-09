@@ -16,7 +16,7 @@
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#6B47DC"
+        android:background="#d7a790"
         tools:context=".MainActivity">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -157,48 +157,52 @@
                 android:layout_width="354dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/header"
-                android:background="#6B47DC"
+                android:background="#d7a790"
                 android:padding="16dp" />
+
             <LinearLayout
                 android:id="@+id/stages_section"
                 android:layout_width="match_parent"
-                android:layout_height="396dp"
+                android:layout_height="526dp"
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/StartMission1"
-                    android:layout_width="85dp"
+                    android:layout_width="120dp"
                     android:layout_height="103dp"
                     android:layout_margin="10dp"
-                    app:srcCompat="@drawable/start"
+                    app:srcCompat="@drawable/fasenivel1"
                     tools:layout_editor_absoluteX="163dp"
                     tools:layout_editor_absoluteY="280dp" />
 
                 <ImageView
                     android:id="@+id/StartMission2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="103dp"
                     android:layout_margin="10dp"
-                    app:srcCompat="@drawable/group_1622"
+                    app:srcCompat="@drawable/fasenivel2"
                     tools:layout_editor_absoluteX="170dp"
                     tools:layout_editor_absoluteY="538dp" />
 
                 <ImageView
                     android:id="@+id/imageView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="120dp"
+                    android:layout_height="103dp"
                     android:layout_margin="10dp"
-                    app:srcCompat="@drawable/story"
+                    app:srcCompat="@drawable/fasenivel3"
                     tools:layout_editor_absoluteX="169dp"
                     tools:layout_editor_absoluteY="420dp" />
 
                 <ImageView
-                    android:id="@+id/imageView11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imagemFaseAleatoria"
+                    android:layout_width="120dp"
+                    android:layout_height="103dp"
                     android:layout_margin="10dp"
-                    app:srcCompat="@drawable/progress_check" />
+                    app:srcCompat="@drawable/fasealeatoria"
+                    tools:layout_editor_absoluteX="169dp"
+                    tools:layout_editor_absoluteY="420dp" />
+
 
             </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
@@ -34,7 +35,7 @@ class tela_quiz_texto : AppCompatActivity() {
             return
         }
 
-        // Escuta as mudanças no documento do usuário para atualizar o score e life
+        // Escuta as mudanças no documento do usuário para atualizar o score e vida
         firestore.collection("users").document(userId).addSnapshotListener { documentSnapshot, e ->
             if (e != null) {
                 Toast.makeText(this, "Erro ao atualizar dados: ${e.message}", Toast.LENGTH_SHORT).show()
@@ -48,10 +49,16 @@ class tela_quiz_texto : AppCompatActivity() {
                 // Atualiza os valores na interface
                 scoreTextView.text = score.toString()
                 lifeTextView.text = life.toString()
+
+                // Verifica se a vida é 0 e impede a entrada na tela do quiz
+                if (life <= 0) {
+                    mostrarDialogFimDeJogo()
+                    return@addSnapshotListener // Impede a execução de código posterior
+                }
             }
         }
 
-        // Lógica do quiz e resposta (já implementada)
+        // Lógica do quiz e resposta
         firestore.collection("Fases")
             .get()
             .addOnSuccessListener { documents ->
@@ -60,17 +67,15 @@ class tela_quiz_texto : AppCompatActivity() {
                     return@addOnSuccessListener
                 }
 
-                // Verifica se o usuário tem perguntas respondidas
                 firestore.collection("users").document(userId).get()
                     .addOnSuccessListener { userDoc ->
                         val perguntasRespondidas = userDoc.get("respondidas") as? List<String> ?: emptyList()
 
-                        // Verifica se a lista de respondidas não está vazia antes de aplicar o filtro
                         val query = if (perguntasRespondidas.isNotEmpty()) {
                             firestore.collection("Fases")
-                                .whereNotIn("id", perguntasRespondidas) // Só aplica o filtro quando houver elementos na lista
+                                .whereNotIn("id", perguntasRespondidas)
                         } else {
-                            firestore.collection("Fases") // Caso contrário, pega todas as fases
+                            firestore.collection("Fases")
                         }
 
                         query.get()
@@ -81,7 +86,6 @@ class tela_quiz_texto : AppCompatActivity() {
                                     return@addOnSuccessListener
                                 }
 
-                                // Continuar com a lógica do código, como antes
                                 val randomQuestion = querySnapshot.documents.random()
                                 val pergunta = randomQuestion.getString("pergunta") ?: "Pergunta indisponível"
                                 val respostas = randomQuestion["correta"] as? List<Map<String, Any>> ?: emptyList()
@@ -125,7 +129,6 @@ class tela_quiz_texto : AppCompatActivity() {
             }
     }
 
-    // Função para configurar os click listeners nas alternativas
     private fun setupClickListeners(
         firestore: FirebaseFirestore,
         userId: String,
@@ -133,52 +136,42 @@ class tela_quiz_texto : AppCompatActivity() {
         corretaIndex: Int,
         alternativas: List<TextView>
     ) {
-        alternativas[0].setOnClickListener {
-            verificarResposta(0, corretaIndex, firestore, userId, questionId)
-        }
-        alternativas[1].setOnClickListener {
-            verificarResposta(1, corretaIndex, firestore, userId, questionId)
-        }
-        alternativas[2].setOnClickListener {
-            verificarResposta(2, corretaIndex, firestore, userId, questionId)
-        }
-        alternativas[3].setOnClickListener {
-            verificarResposta(3, corretaIndex, firestore, userId, questionId)
+        alternativas.forEachIndexed { index, textView ->
+            textView.setOnClickListener {
+                verificarResposta(index, corretaIndex, firestore, userId, questionId)
+            }
         }
     }
 
-    // Função para verificar a resposta
     private fun verificarResposta(indexSelecionado: Int, indexCorreto: Int, firestore: FirebaseFirestore, userId: String, questionId: String) {
         if (indexSelecionado == indexCorreto) {
-            // Atualiza o score do usuário no Firestore
             val userRef = firestore.collection("users").document(userId)
 
             userRef.get().addOnSuccessListener { document ->
                 if (document.exists()) {
                     val currentScore = document.getLong("score")?.toInt() ?: 0
-                    val updatedScore = currentScore + 10  // Adiciona 10 pontos
+                    val updatedScore = currentScore + 10
 
                     userRef.update("score", updatedScore)
                         .addOnSuccessListener {
                             Toast.makeText(this, "Resposta correta! +10 pontos.", Toast.LENGTH_SHORT).show()
-                            // Marca a questão como respondida
                             userRef.update("respondidas", FieldValue.arrayUnion(questionId))
+                                .addOnSuccessListener {
+                                    finish()
+                                }
                         }
                         .addOnFailureListener { e ->
                             Toast.makeText(this, "Erro ao atualizar o score: ${e.message}", Toast.LENGTH_SHORT).show()
                         }
-                } else {
-                    Toast.makeText(this, "Usuário não encontrado no banco de dados!", Toast.LENGTH_SHORT).show()
                 }
             }
         } else {
-            // Resposta errada, diminui 1 unidade de vida
             val userRef = firestore.collection("users").document(userId)
 
             userRef.get().addOnSuccessListener { document ->
                 if (document.exists()) {
                     val currentLife = document.getLong("life")?.toInt() ?: 0
-                    val updatedLife = currentLife - 1  // Diminui 1 vida
+                    val updatedLife = currentLife - 1
 
                     userRef.update("life", updatedLife)
                         .addOnSuccessListener {
@@ -190,5 +183,16 @@ class tela_quiz_texto : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun mostrarDialogFimDeJogo() {
+        val alertDialog = AlertDialog.Builder(this)
+            .setTitle("Fim de Jogo")
+            .setMessage("Você não tem mais vidas. Deseja sair?")
+            .setPositiveButton("OK") { _, _ -> finish() }
+            .setCancelable(false)
+            .create()
+
+        alertDialog.show()
     }
 }
