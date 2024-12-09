@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -19,6 +20,7 @@ class register_screen : AppCompatActivity() {
     lateinit var buttonRegistrar: Button
     lateinit var editTextSenha: EditText
     lateinit var editTextConfirmaSenha: EditText
+    lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +33,8 @@ class register_screen : AppCompatActivity() {
         editTextConfirmaSenha = findViewById(R.id.repeatSenha)
 
         fb = Firebase.firestore
+        auth = FirebaseAuth.getInstance() // Instancia o FirebaseAuth
+
         findViewById<Button>(R.id.voltarTelaLogin).setOnClickListener {
             val intent = Intent(this, LoginScreen::class.java)
             startActivity(intent)
@@ -60,31 +64,49 @@ class register_screen : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // Adiciona os dados do usuário com valores padrão para life e score
-            val userData = mapOf(
-                "nome" to nome,
-                "email" to email,
-                "senha" to senha,
-                "life" to 5,
-                "score" to 0
-            )
+            // Registra o usuário no Firebase Authentication
+            auth.createUserWithEmailAndPassword(email, senha)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Usuário autenticado com sucesso, agora salva os dados no Firestore
+                        val userId = auth.currentUser?.uid ?: return@addOnCompleteListener
+                        val userData = mapOf(
+                            "nome" to nome,
+                            "email" to email,
+                            "senha" to senha,
+                            "life" to 5,
+                            "score" to 0
+                        )
 
-            fb.collection("users")
-                .add(userData)
-                .addOnSuccessListener {
-                    AlertDialog.Builder(this)
-                        .setTitle("Sucesso!")
-                        .setMessage("Registro realizado com sucesso!")
-                        .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
-                        .show()
-                }
-                .addOnFailureListener { e ->
-                    AlertDialog.Builder(this)
-                        .setTitle("Erro")
-                        .setMessage("Erro ao registrar usuário: ${e.message}")
-                        .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
-                        .show()
-                    Log.e("Firestore", "Erro ao registrar usuário", e)
+                        fb.collection("users")
+                            .document(userId) // Usa o UID do Firebase Authentication como documento no Firestore
+                            .set(userData)
+                            .addOnSuccessListener {
+                                AlertDialog.Builder(this)
+                                    .setTitle("Sucesso!")
+                                    .setMessage("Registro realizado com sucesso!")
+                                    .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                                    .show()
+                                // Redireciona para a tela de login após registro
+                                val intent = Intent(this, LoginScreen::class.java)
+                                startActivity(intent)
+                            }
+                            .addOnFailureListener { e ->
+                                AlertDialog.Builder(this)
+                                    .setTitle("Erro")
+                                    .setMessage("Erro ao registrar usuário no Firestore: ${e.message}")
+                                    .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                                    .show()
+                                Log.e("Firestore", "Erro ao registrar usuário no Firestore", e)
+                            }
+                    } else {
+                        // Se falhar ao criar o usuário no Firebase Authentication
+                        AlertDialog.Builder(this)
+                            .setTitle("Erro")
+                            .setMessage("Erro ao registrar usuário: ${task.exception?.message}")
+                            .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                            .show()
+                    }
                 }
         }
     }
