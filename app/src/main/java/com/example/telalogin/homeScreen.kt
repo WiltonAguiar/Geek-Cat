@@ -97,6 +97,11 @@ class homeScreen : AppCompatActivity() {
             val intent = Intent(this, tela_ranking::class.java)
             startActivity(intent)
         }
+
+        findViewById<ImageView>(R.id.imageView8).setOnClickListener {
+            val intent = Intent(this, ProfileViewActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setupUserDataListener() {
@@ -176,3 +181,5 @@ class homeScreen : AppCompatActivity() {
         userDocListener?.remove()
     }
 }
+
+
