@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/telafundo"
+    android:background="#d7a790"
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
     android:paddingVertical="28dp">
