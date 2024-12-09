@@ -53,9 +53,9 @@ class ProfileEditActivity : AppCompatActivity() {
                 }
         }
 
-        findViewById<Button>(R.id.esqueceuSenha).setOnClickListener {
-            val intent = Intent(this, forgot_password::class.java)
-            startActivity(intent)
-        }
+//        findViewById<Button>(R.id.esqueceuSenha).setOnClickListener {
+//            val intent = Intent(this, forgot_password::class.java)
+//            startActivity(intent)
+//        }
     }
 }

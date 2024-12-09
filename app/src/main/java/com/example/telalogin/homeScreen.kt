@@ -62,6 +62,14 @@ class homeScreen : AppCompatActivity() {
             }
         }
 
+        findViewById<ImageView>(R.id.imagemFaseAleatoria).setOnClickListener {
+            verificarVidas {
+                val intent = Intent(this, tela_quiz_texto_aleatorio::class.java)
+                startActivity(intent)
+            }
+        }
+
+
 
         findViewById<ImageView>(R.id.imageView5).setOnClickListener {
             verificarVidas {

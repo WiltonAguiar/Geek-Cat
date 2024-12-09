@@ -66,23 +66,6 @@
 
         />
 
-    <Button
-
-        android:id="@+id/esqueceuSenha"
-        android:layout_width="210dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:hint="Esqueceu sua senha?"
-        android:textSize="13sp"
-        android:background="@drawable/custom_edittext"
-        android:backgroundTint="@color/Lavender"
-        android:padding="12dp"
-        android:textAlignment="center"
-        android:textColor="@color/Lavender"
-        android:textColorHint="@color/white"
-
-
-        />
 
     <Button
         android:id="@+id/botaoEntrar"
@@ -104,14 +87,14 @@
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:hint="Não tem uma conta? Registrar-se."
-        android:textSize="11dp"
-        android:padding="15dp"
         android:background="@drawable/custom_edittext"
-        android:backgroundTint="@color/Lavender"
+        android:backgroundTint="#6959DE"
+        android:hint="Não tem uma conta? Registrar-se."
+        android:padding="15dp"
         android:textAlignment="center"
         android:textColor="@color/Lavender"
         android:textColorHint="@color/white"
+        android:textSize="11dp"
 
 
         />

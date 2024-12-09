@@ -30,10 +30,6 @@ class LoginScreen : AppCompatActivity() {
         firebaseAuth = FirebaseAuth.getInstance()
 
         // Botão para esquecimento de senha
-        findViewById<Button>(R.id.esqueceuSenha).setOnClickListener {
-            val intent = Intent(this, forgot_password::class.java)
-            startActivity(intent)
-        }
 
         // Botão para registrar novo usuário
         findViewById<Button>(R.id.registrar).setOnClickListener {

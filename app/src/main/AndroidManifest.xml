@@ -19,6 +19,9 @@
             android:name=".ProfileViewActivity"
             android:exported="false" />
         <activity
+            android:name=".tela_quiz_texto_aleatorio"
+            android:exported="false" />
+        <activity
             android:name=".tela_quiz_texto_nv3"
             android:exported="false" />
         <activity

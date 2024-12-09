@@ -152,13 +152,17 @@
             </LinearLayout>
 
             <!-- Manter restante do layout inalterado -->
-            <RelativeLayout
+            <TextView
                 android:id="@+id/level_section"
                 android:layout_width="354dp"
                 android:layout_height="40dp"
                 android:layout_below="@id/header"
                 android:background="#d7a790"
-                android:padding="16dp" />
+                android:fontFamily="sans-serif-black"
+                android:paddingLeft="10dp"
+                android:text="Selecione a dificuldade do quiz"
+                android:textColor="@color/white"
+                android:textSize="24dp" />
 
             <LinearLayout
                 android:id="@+id/stages_section"
