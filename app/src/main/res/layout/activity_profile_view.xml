@@ -1,48 +1,57 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/telafundo"
+    android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="@drawable/telafundo">
+    android:paddingHorizontal="12dp"
+    android:paddingVertical="28dp">
+
+
 
     <TextView
         android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Nome"
-        android:textSize="18sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        android:textSize="18sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_life"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Vida"
-        android:textSize="18sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tv_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Score"
-        android:textSize="18sp"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
 
     <Button
         android:id="@+id/btn_edit_profile"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/esqueceuSenha"
+        android:padding="15dp"
         android:text="Editar Perfil"
-        android:backgroundTint="@color/Lavender" />
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp" />
 
 </LinearLayout>

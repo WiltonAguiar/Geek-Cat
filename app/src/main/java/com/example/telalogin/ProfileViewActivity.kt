@@ -13,33 +13,28 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class ProfileViewActivity : AppCompatActivity() {
 
-    private val db = FirebaseFirestore.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile_view)
 
-        val tvName = findViewById<TextView>(R.id.tv_name)
-        val tvEmail = findViewById<TextView>(R.id.tv_email)
-        val tvLife = findViewById<TextView>(R.id.tv_life)
-        val tvScore = findViewById<TextView>(R.id.tv_score)
-        val btnEditProfile = findViewById<Button>(R.id.btn_edit_profile)
-
+        val db = FirebaseFirestore.getInstance()
         val userId = FirebaseAuth.getInstance().currentUser?.uid
 
-        if (userId != null) {
-            db.collection("users").document(userId).get()
-                .addOnSuccessListener { documentSnapshot ->
-                    if (documentSnapshot != null) {
-                        tvName.text = "Nome: ${documentSnapshot.data?.get("nome") as String}"
-                        tvEmail.text = "Email: ${documentSnapshot.data?.get("email") as String}"
-                        tvLife.text = "Vida: ${documentSnapshot.data?.get("life") as String}"
-                        tvScore.text = "Score: ${documentSnapshot.data?.get("score") as String}"
-                    }
+        val btnEditProfile = findViewById<Button>(R.id.btn_edit_profile)
 
+        if (userId != null) {
+            db.collection("users").document(userId)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document != null) {
+                        findViewById<TextView>(R.id.tv_name).text = document.getString("nome")
+                        findViewById<TextView>(R.id.tv_email).text = document.getString("email")
+                        findViewById<TextView>(R.id.tv_life).text = document.getLong("life")?.toString()
+                        findViewById<TextView>(R.id.tv_score).text = document.getLong("score")?.toString()
+                    }
                 }
-                .addOnFailureListener { e ->
-                    Log.e("ProfileView", "Erro ao buscar dados: ", e)
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Erro ao carregar os dados: ${exception.message}", Toast.LENGTH_LONG).show()
                 }
         }
 

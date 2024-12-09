@@ -56,6 +56,11 @@ class homeScreen : AppCompatActivity() {
             startActivity(intent)
         }
 
+        findViewById<ImageView>(R.id.imageView8).setOnClickListener {
+            val intent = Intent(this, ProfileViewActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
     }}
