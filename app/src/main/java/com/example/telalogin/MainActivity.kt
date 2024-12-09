@@ -36,10 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Set OnClickListener para o botão "Esqueceu a Senha"
-        findViewById<Button>(R.id.esqueceuSenha).setOnClickListener {
-            val intent = Intent(this, forgot_password::class.java)
-            startActivity(intent)
-        }
+        
 
         // Set OnClickListener para o botão "Registrar"
 
