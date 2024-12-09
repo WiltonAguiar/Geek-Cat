@@ -3,6 +3,7 @@ package com.example.telalogin
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,5 +48,10 @@ class tela_ranking : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.e("Firebase", "Erro ao carregar ranking", exception)
             }
+
+        val backButton = findViewById<Button>(R.id.btn_back)
+        backButton.setOnClickListener {
+            finish() // Encerra a Activity atual e volta para a anterior
+        }
     }
 }

@@ -5,7 +5,22 @@
     android:background="#d7a790"
     android:orientation="vertical"
     android:paddingHorizontal="16dp"
-    android:paddingVertical="28dp">
+    android:paddingVertical="32dp">
+
+    <Button
+
+        android:id="@+id/btn_back"
+        android:layout_width="56dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:alpha="0.4"
+        android:padding="8dp"
+        android:text="Voltar"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        android:layout_marginEnd="16dp" />
+
 
     <EditText
         android:id="@+id/et_name"

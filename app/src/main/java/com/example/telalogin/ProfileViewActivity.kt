@@ -55,6 +55,11 @@ class ProfileViewActivity : AppCompatActivity() {
         btnEditProfile.setOnClickListener {
             startActivity(Intent(this, ProfileEditActivity::class.java))
         }
+
+        val backButton = findViewById<Button>(R.id.btn_back)
+        backButton.setOnClickListener {
+            finish() // Encerra a Activity atual e volta para a anterior
+        }
     }
 
     private fun setupUserDataListener() {
