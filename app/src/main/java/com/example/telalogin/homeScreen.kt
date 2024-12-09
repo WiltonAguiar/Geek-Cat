@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -40,13 +41,25 @@ class homeScreen : AppCompatActivity() {
 
         // Navegação para outras telas
         findViewById<ImageView>(R.id.StartMission1).setOnClickListener {
-            val intent = Intent(this, tela_quiz_texto::class.java)
-            startActivity(intent)
+            verificarVidas {
+                val intent = Intent(this, tela_quiz_texto::class.java)
+                startActivity(intent)
+            }
         }
 
         findViewById<ImageView>(R.id.StartMission2).setOnClickListener {
-            val intent = Intent(this, tela_quiz_audio::class.java)
-            startActivity(intent)
+            verificarVidas {
+                val intent = Intent(this, tela_quiz_texto_nv2::class.java)
+                startActivity(intent)
+            }
+        }
+
+
+        findViewById<ImageView>(R.id.imageView5).setOnClickListener {
+            verificarVidas {
+                val intent = Intent(this, tela_quiz_texto_nv3::class.java)
+                startActivity(intent)
+            }
         }
 
         findViewById<ImageView>(R.id.imageButton_heart_red).setOnClickListener {
@@ -110,6 +123,35 @@ class homeScreen : AppCompatActivity() {
                 Toast.makeText(this, "Dados do usuário não encontrados!", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun verificarVidas(onSuccess: () -> Unit) {
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+            Toast.makeText(this, "Usuário não autenticado", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val userId = currentUser.uid
+        fb.collection("users").document(userId).get()
+            .addOnSuccessListener { documentSnapshot ->
+                val life = documentSnapshot.getLong("life") ?: 0
+                if (life > 0) {
+                    // Usuário tem vidas, pode continuar
+                    onSuccess()
+                } else {
+                    // Usuário não tem vidas, mostra um alerta
+                    AlertDialog.Builder(this)
+                        .setTitle("Sem vidas!")
+                        .setMessage("Você não tem vidas suficientes para acessar esta missão. Tente novamente mais tarde!")
+                        .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
+                        .setCancelable(false)
+                        .show()
+                }
+            }
+            .addOnFailureListener { e ->
+                Toast.makeText(this, "Erro ao verificar vidas: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 
     override fun onStart() {
