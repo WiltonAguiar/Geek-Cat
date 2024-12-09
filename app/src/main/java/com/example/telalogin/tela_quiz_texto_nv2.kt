@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
-class tela_quiz_texto : AppCompatActivity() {
+class tela_quiz_texto_nv2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,7 +62,7 @@ class tela_quiz_texto : AppCompatActivity() {
         firestore.collection("users").document(userId).get()
             .addOnSuccessListener { userDoc ->
                 val perguntasRespondidas = userDoc.get("respondidas") as? List<String> ?: emptyList()
-                val nivelDesejado = "1" // Filtro para nível 1
+                val nivelDesejado = "2" // Filtro para nível 1
 
                 // Carrega todas as questões de nível 1
                 firestore.collection("Fases")
@@ -146,11 +146,11 @@ class tela_quiz_texto : AppCompatActivity() {
             userRef.get().addOnSuccessListener { document ->
                 if (document.exists()) {
                     val currentScore = document.getLong("score")?.toInt() ?: 0
-                    val updatedScore = currentScore + 10
+                    val updatedScore = currentScore + 20
 
                     userRef.update("score", updatedScore)
                         .addOnSuccessListener {
-                            Toast.makeText(this, "Resposta correta! +10 pontos.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Resposta correta! +20 pontos.", Toast.LENGTH_SHORT).show()
                             userRef.update("respondidas", FieldValue.arrayUnion(questionId))
                                 .addOnSuccessListener {
                                     finish()

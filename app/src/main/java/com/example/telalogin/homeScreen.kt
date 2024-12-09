@@ -49,7 +49,15 @@ class homeScreen : AppCompatActivity() {
 
         findViewById<ImageView>(R.id.StartMission2).setOnClickListener {
             verificarVidas {
-                val intent = Intent(this, tela_quiz_audio::class.java)
+                val intent = Intent(this, tela_quiz_texto_nv2::class.java)
+                startActivity(intent)
+            }
+        }
+
+
+        findViewById<ImageView>(R.id.imageView5).setOnClickListener {
+            verificarVidas {
+                val intent = Intent(this, tela_quiz_texto_nv3::class.java)
                 startActivity(intent)
             }
         }
