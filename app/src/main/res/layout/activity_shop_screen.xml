@@ -41,52 +41,6 @@
         app:layout_constraintStart_toEndOf="@+id/button_sair_loja"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="232dp"
-        android:layout_marginBottom="12dp"
-        android:text="Poderes"
-        android:textColor="@color/white"
-        android:textSize="39sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_loja" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="271dp"
-        android:layout_height="132dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="13dp"
-        android:backgroundTint="@color/Lavender"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton5"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/pular_fase_processed" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="272dp"
-        android:layout_height="128dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="103dp"
-        android:backgroundTint="@color/Lavender"
-        android:layout_marginBottom="264dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton4"
-        app:srcCompat="@drawable/dica_processed" />
 
     <TextView
         android:id="@+id/textView7"
@@ -95,14 +49,15 @@
         android:layout_marginStart="37dp"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="117dp"
-        android:layout_marginBottom="174dp"
+        android:layout_marginBottom="556dp"
         android:text="Comprar Vidas"
         android:textColor="@color/white"
         android:textSize="39sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton5" />
+         />
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -115,8 +70,10 @@
         android:backgroundTint="@color/Lavender"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/comprar_vida_processed" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,6 +47,14 @@ class homeScreen : AppCompatActivity() {
             }
         }
 
+        findViewById<ImageView>(R.id.imageButton_cup_gold).setOnClickListener {
+            verificarVidas {
+                val intent = Intent(this, tela_ranking::class.java)
+                startActivity(intent)
+            }
+        }
+
+
         findViewById<ImageView>(R.id.StartMission2).setOnClickListener {
             verificarVidas {
                 val intent = Intent(this, tela_quiz_texto_nv2::class.java)
